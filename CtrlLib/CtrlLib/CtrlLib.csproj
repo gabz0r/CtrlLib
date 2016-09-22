@@ -1,0 +1,948 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E062F94-E112-49B6-B767-9C266D273130}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CtrlLib</RootNamespace>
+    <AssemblyName>CtrlLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CloudApiLib">
+      <HintPath>..\..\..\..\Projekte\Ctrl\CloudApiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CtrlBusinessLibSdk">
+      <HintPath>..\..\..\..\Projekte\Ctrl\CtrlBusinessLibSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="CtrlValidationLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Projekte\Ctrl\CtrlValidationLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\..\..\Projekte\Ctrl\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\..\..\Projekte\Ctrl\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\..\..\..\Projekte\Ctrl\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.14\lib\net\WpfAnimatedGif.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\CtrlApplication.cs" />
+    <Compile Include="App\Exception\CtrlUnhandledExceptionWindow.xaml.cs">
+      <DependentUpon>CtrlUnhandledExceptionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\CtrlCommand.cs" />
+    <Compile Include="Commands\CtrlCommands.cs" />
+    <Compile Include="Extensions\CtrlSecureStringExtensions.cs" />
+    <Compile Include="Helper\CtrlValidationHelper.cs" />
+    <Compile Include="Module\ModuleDisplayType.cs" />
+    <Compile Include="Module\ModuleRenderType.cs" />
+    <Compile Include="UserInterface\Controls\Actions\CtrlButton.cs" />
+    <Compile Include="UserInterface\Controls\Actions\CtrlContextMenu.cs" />
+    <Compile Include="UserInterface\Controls\Data\Menu\CtrlListMenu.cs" />
+    <Compile Include="UserInterface\Controls\Data\CtrlGridView\CtrlGridView.cs" />
+    <Compile Include="UserInterface\Controls\Data\CtrlGridView\CtrlTextColumn.cs" />
+    <Compile Include="UserInterface\Controls\Editors\CtrlMaskedTextBox.cs" />
+    <Compile Include="UserInterface\Controls\Host\CtrlGroupBox.cs" />
+    <Compile Include="UserInterface\Controls\Host\CtrlStackedTabControl.cs" />
+    <Compile Include="UserInterface\Controls\Host\CtrlTabControl.cs" />
+    <Compile Include="UserInterface\Controls\Host\CtrlWindow.cs" />
+    <Compile Include="UserInterface\Controls\Indicators\CtrlLoadingIndicator.cs" />
+    <Compile Include="UserInterface\Controls\Ribbon\CtrlRibbonGroup.cs" />
+    <Compile Include="UserInterface\Controls\Ribbon\CtrlRibbonItem.cs" />
+    <Compile Include="UserInterface\Controls\Ribbon\CtrlRibbonPage.cs" />
+    <Compile Include="UserInterface\Layout\CtrlLayoutGroup.cs" />
+    <Compile Include="UserInterface\Mvvm\CtrlBaseUserControl.cs" />
+    <Compile Include="UserInterface\Mvvm\CtrlBaseViewModel.cs" />
+    <Compile Include="UserInterface\Mvvm\CtrlBaseWindow.cs" />
+    <Compile Include="UserInterface\Search\CtrlSearch.cs" />
+    <Compile Include="UserInterface\Search\CtrlSearchViewModel.cs" />
+    <Compile Include="UserInterface\Search\CtrlSearchUserControl.xaml.cs">
+      <DependentUpon>CtrlSearchUserControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="App\Exception\CtrlUnhandledExceptionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Xaml\CtrlColorResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Xaml\CtrlDimensionResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Xaml\CtrlContextMenuResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlGroupBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlListMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlLoadingIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\CtrlMaskedTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlRibbonItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlStackedTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\CtrlWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Session\CtrlSession.cs" />
+    <Compile Include="Helper\CtrlSingleton.cs" />
+    <Compile Include="Helper\CtrlUiHelper.cs" />
+    <Compile Include="Module\CtrlModuleStarter.cs" />
+    <Compile Include="UserInterface\Controls\Editors\CtrlTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UserInterface\Search\CtrlSearchUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ajax_loader_gray_512.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\login_ctrl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\archive-1.png" />
+    <Resource Include="Resources\Icons\archive-10.png" />
+    <Resource Include="Resources\Icons\archive-11.png" />
+    <Resource Include="Resources\Icons\archive-12.png" />
+    <Resource Include="Resources\Icons\archive-13.png" />
+    <Resource Include="Resources\Icons\archive-14.png" />
+    <Resource Include="Resources\Icons\archive-15.png" />
+    <Resource Include="Resources\Icons\archive-16.png" />
+    <Resource Include="Resources\Icons\archive-17.png" />
+    <Resource Include="Resources\Icons\archive-18.png" />
+    <Resource Include="Resources\Icons\archive-19.png" />
+    <Resource Include="Resources\Icons\archive-2.png" />
+    <Resource Include="Resources\Icons\archive-3.png" />
+    <Resource Include="Resources\Icons\archive-4.png" />
+    <Resource Include="Resources\Icons\archive-5.png" />
+    <Resource Include="Resources\Icons\archive-6.png" />
+    <Resource Include="Resources\Icons\archive-7.png" />
+    <Resource Include="Resources\Icons\archive-8.png" />
+    <Resource Include="Resources\Icons\archive-9.png" />
+    <Resource Include="Resources\Icons\archive.png" />
+    <Resource Include="Resources\Icons\atm-1.png" />
+    <Resource Include="Resources\Icons\atm-2.png" />
+    <Resource Include="Resources\Icons\atm.png" />
+    <Resource Include="Resources\Icons\bag-1.png" />
+    <Resource Include="Resources\Icons\bag-2.png" />
+    <Resource Include="Resources\Icons\bag-3.png" />
+    <Resource Include="Resources\Icons\bag-4.png" />
+    <Resource Include="Resources\Icons\bag-5.png" />
+    <Resource Include="Resources\Icons\bag-6.png" />
+    <Resource Include="Resources\Icons\bag.png" />
+    <Resource Include="Resources\Icons\bank.png" />
+    <Resource Include="Resources\Icons\barbershop.png" />
+    <Resource Include="Resources\Icons\barcode-1.png" />
+    <Resource Include="Resources\Icons\barcode.png" />
+    <Resource Include="Resources\Icons\basket-1.png" />
+    <Resource Include="Resources\Icons\basket-2.png" />
+    <Resource Include="Resources\Icons\basket.png" />
+    <Resource Include="Resources\Icons\bookmark-1.png" />
+    <Resource Include="Resources\Icons\bookmark-10.png" />
+    <Resource Include="Resources\Icons\bookmark-11.png" />
+    <Resource Include="Resources\Icons\bookmark-12.png" />
+    <Resource Include="Resources\Icons\bookmark-13.png" />
+    <Resource Include="Resources\Icons\bookmark-14.png" />
+    <Resource Include="Resources\Icons\bookmark-15.png" />
+    <Resource Include="Resources\Icons\bookmark-16.png" />
+    <Resource Include="Resources\Icons\bookmark-17.png" />
+    <Resource Include="Resources\Icons\bookmark-18.png" />
+    <Resource Include="Resources\Icons\bookmark-19.png" />
+    <Resource Include="Resources\Icons\bookmark-2.png" />
+    <Resource Include="Resources\Icons\bookmark-3.png" />
+    <Resource Include="Resources\Icons\bookmark-4.png" />
+    <Resource Include="Resources\Icons\bookmark-5.png" />
+    <Resource Include="Resources\Icons\bookmark-6.png" />
+    <Resource Include="Resources\Icons\bookmark-7.png" />
+    <Resource Include="Resources\Icons\bookmark-8.png" />
+    <Resource Include="Resources\Icons\bookmark-9.png" />
+    <Resource Include="Resources\Icons\bookmark.png" />
+    <Resource Include="Resources\Icons\box-1.png" />
+    <Resource Include="Resources\Icons\box-2.png" />
+    <Resource Include="Resources\Icons\box-3.png" />
+    <Resource Include="Resources\Icons\box.png" />
+    <Resource Include="Resources\Icons\briefcase-1.png" />
+    <Resource Include="Resources\Icons\briefcase.png" />
+    <Resource Include="Resources\Icons\browser-1.png" />
+    <Resource Include="Resources\Icons\browser-10.png" />
+    <Resource Include="Resources\Icons\browser-11.png" />
+    <Resource Include="Resources\Icons\browser-12.png" />
+    <Resource Include="Resources\Icons\browser-13.png" />
+    <Resource Include="Resources\Icons\browser-14.png" />
+    <Resource Include="Resources\Icons\browser-15.png" />
+    <Resource Include="Resources\Icons\browser-16.png" />
+    <Resource Include="Resources\Icons\browser-17.png" />
+    <Resource Include="Resources\Icons\browser-18.png" />
+    <Resource Include="Resources\Icons\browser-19.png" />
+    <Resource Include="Resources\Icons\browser-2.png" />
+    <Resource Include="Resources\Icons\browser-3.png" />
+    <Resource Include="Resources\Icons\browser-4.png" />
+    <Resource Include="Resources\Icons\browser-5.png" />
+    <Resource Include="Resources\Icons\browser-6.png" />
+    <Resource Include="Resources\Icons\browser-7.png" />
+    <Resource Include="Resources\Icons\browser-8.png" />
+    <Resource Include="Resources\Icons\browser-9.png" />
+    <Resource Include="Resources\Icons\browser.png" />
+    <Resource Include="Resources\Icons\calculator.png" />
+    <Resource Include="Resources\Icons\calendar-1.png" />
+    <Resource Include="Resources\Icons\calendar-10.png" />
+    <Resource Include="Resources\Icons\calendar-11.png" />
+    <Resource Include="Resources\Icons\calendar-12.png" />
+    <Resource Include="Resources\Icons\calendar-13.png" />
+    <Resource Include="Resources\Icons\calendar-14.png" />
+    <Resource Include="Resources\Icons\calendar-15.png" />
+    <Resource Include="Resources\Icons\calendar-16.png" />
+    <Resource Include="Resources\Icons\calendar-17.png" />
+    <Resource Include="Resources\Icons\calendar-18.png" />
+    <Resource Include="Resources\Icons\calendar-19.png" />
+    <Resource Include="Resources\Icons\calendar-2.png" />
+    <Resource Include="Resources\Icons\calendar-20.png" />
+    <Resource Include="Resources\Icons\calendar-21.png" />
+    <Resource Include="Resources\Icons\calendar-22.png" />
+    <Resource Include="Resources\Icons\calendar-23.png" />
+    <Resource Include="Resources\Icons\calendar-24.png" />
+    <Resource Include="Resources\Icons\calendar-25.png" />
+    <Resource Include="Resources\Icons\calendar-26.png" />
+    <Resource Include="Resources\Icons\calendar-27.png" />
+    <Resource Include="Resources\Icons\calendar-28.png" />
+    <Resource Include="Resources\Icons\calendar-29.png" />
+    <Resource Include="Resources\Icons\calendar-3.png" />
+    <Resource Include="Resources\Icons\calendar-30.png" />
+    <Resource Include="Resources\Icons\calendar-31.png" />
+    <Resource Include="Resources\Icons\calendar-32.png" />
+    <Resource Include="Resources\Icons\calendar-33.png" />
+    <Resource Include="Resources\Icons\calendar-34.png" />
+    <Resource Include="Resources\Icons\calendar-35.png" />
+    <Resource Include="Resources\Icons\calendar-36.png" />
+    <Resource Include="Resources\Icons\calendar-37.png" />
+    <Resource Include="Resources\Icons\calendar-38.png" />
+    <Resource Include="Resources\Icons\calendar-39.png" />
+    <Resource Include="Resources\Icons\calendar-4.png" />
+    <Resource Include="Resources\Icons\calendar-5.png" />
+    <Resource Include="Resources\Icons\calendar-6.png" />
+    <Resource Include="Resources\Icons\calendar-7.png" />
+    <Resource Include="Resources\Icons\calendar-8.png" />
+    <Resource Include="Resources\Icons\calendar-9.png" />
+    <Resource Include="Resources\Icons\calendar.png" />
+    <Resource Include="Resources\Icons\cart-1.png" />
+    <Resource Include="Resources\Icons\cart-10.png" />
+    <Resource Include="Resources\Icons\cart-11.png" />
+    <Resource Include="Resources\Icons\cart-12.png" />
+    <Resource Include="Resources\Icons\cart-13.png" />
+    <Resource Include="Resources\Icons\cart-14.png" />
+    <Resource Include="Resources\Icons\cart-15.png" />
+    <Resource Include="Resources\Icons\cart-16.png" />
+    <Resource Include="Resources\Icons\cart-17.png" />
+    <Resource Include="Resources\Icons\cart-2.png" />
+    <Resource Include="Resources\Icons\cart-3.png" />
+    <Resource Include="Resources\Icons\cart-4.png" />
+    <Resource Include="Resources\Icons\cart-5.png" />
+    <Resource Include="Resources\Icons\cart-6.png" />
+    <Resource Include="Resources\Icons\cart-7.png" />
+    <Resource Include="Resources\Icons\cart-8.png" />
+    <Resource Include="Resources\Icons\cart-9.png" />
+    <Resource Include="Resources\Icons\cart.png" />
+    <Resource Include="Resources\Icons\cashier-1.png" />
+    <Resource Include="Resources\Icons\cashier.png" />
+    <Resource Include="Resources\Icons\change.png" />
+    <Resource Include="Resources\Icons\check.png" />
+    <Resource Include="Resources\Icons\cloud-computing-1.png" />
+    <Resource Include="Resources\Icons\cloud-computing-10.png" />
+    <Resource Include="Resources\Icons\cloud-computing-11.png" />
+    <Resource Include="Resources\Icons\cloud-computing-12.png" />
+    <Resource Include="Resources\Icons\cloud-computing-13.png" />
+    <Resource Include="Resources\Icons\cloud-computing-14.png" />
+    <Resource Include="Resources\Icons\cloud-computing-15.png" />
+    <Resource Include="Resources\Icons\cloud-computing-16.png" />
+    <Resource Include="Resources\Icons\cloud-computing-17.png" />
+    <Resource Include="Resources\Icons\cloud-computing-18.png" />
+    <Resource Include="Resources\Icons\cloud-computing-19.png" />
+    <Resource Include="Resources\Icons\cloud-computing-2.png" />
+    <Resource Include="Resources\Icons\cloud-computing-3.png" />
+    <Resource Include="Resources\Icons\cloud-computing-4.png" />
+    <Resource Include="Resources\Icons\cloud-computing-5.png" />
+    <Resource Include="Resources\Icons\cloud-computing-6.png" />
+    <Resource Include="Resources\Icons\cloud-computing-7.png" />
+    <Resource Include="Resources\Icons\cloud-computing-8.png" />
+    <Resource Include="Resources\Icons\cloud-computing-9.png" />
+    <Resource Include="Resources\Icons\cloud-computing.png" />
+    <Resource Include="Resources\Icons\coin-1.png" />
+    <Resource Include="Resources\Icons\coin-10.png" />
+    <Resource Include="Resources\Icons\coin-2.png" />
+    <Resource Include="Resources\Icons\coin-3.png" />
+    <Resource Include="Resources\Icons\coin-4.png" />
+    <Resource Include="Resources\Icons\coin-5.png" />
+    <Resource Include="Resources\Icons\coin-6.png" />
+    <Resource Include="Resources\Icons\coin-7.png" />
+    <Resource Include="Resources\Icons\coin-8.png" />
+    <Resource Include="Resources\Icons\coin-9.png" />
+    <Resource Include="Resources\Icons\coin.png" />
+    <Resource Include="Resources\Icons\coins-1.png" />
+    <Resource Include="Resources\Icons\coins.png" />
+    <Resource Include="Resources\Icons\crate-1.png" />
+    <Resource Include="Resources\Icons\crate-2.png" />
+    <Resource Include="Resources\Icons\crate-3.png" />
+    <Resource Include="Resources\Icons\crate-4.png" />
+    <Resource Include="Resources\Icons\crate-5.png" />
+    <Resource Include="Resources\Icons\crate.png" />
+    <Resource Include="Resources\Icons\credit-card-1.png" />
+    <Resource Include="Resources\Icons\credit-card-2.png" />
+    <Resource Include="Resources\Icons\credit-card-3.png" />
+    <Resource Include="Resources\Icons\credit-card-4.png" />
+    <Resource Include="Resources\Icons\credit-card-5.png" />
+    <Resource Include="Resources\Icons\credit-card-6.png" />
+    <Resource Include="Resources\Icons\credit-card.png" />
+    <Resource Include="Resources\Icons\database-1.png" />
+    <Resource Include="Resources\Icons\database-10.png" />
+    <Resource Include="Resources\Icons\database-11.png" />
+    <Resource Include="Resources\Icons\database-12.png" />
+    <Resource Include="Resources\Icons\database-13.png" />
+    <Resource Include="Resources\Icons\database-14.png" />
+    <Resource Include="Resources\Icons\database-15.png" />
+    <Resource Include="Resources\Icons\database-16.png" />
+    <Resource Include="Resources\Icons\database-17.png" />
+    <Resource Include="Resources\Icons\database-18.png" />
+    <Resource Include="Resources\Icons\database-19.png" />
+    <Resource Include="Resources\Icons\database-2.png" />
+    <Resource Include="Resources\Icons\database-3.png" />
+    <Resource Include="Resources\Icons\database-4.png" />
+    <Resource Include="Resources\Icons\database-5.png" />
+    <Resource Include="Resources\Icons\database-6.png" />
+    <Resource Include="Resources\Icons\database-7.png" />
+    <Resource Include="Resources\Icons\database-8.png" />
+    <Resource Include="Resources\Icons\database-9.png" />
+    <Resource Include="Resources\Icons\database.png" />
+    <Resource Include="Resources\Icons\delivery-cart-1.png" />
+    <Resource Include="Resources\Icons\delivery-cart.png" />
+    <Resource Include="Resources\Icons\diagram-1.png" />
+    <Resource Include="Resources\Icons\diagram-2.png" />
+    <Resource Include="Resources\Icons\diagram-3.png" />
+    <Resource Include="Resources\Icons\diagram.png" />
+    <Resource Include="Resources\Icons\envelope-1.png" />
+    <Resource Include="Resources\Icons\envelope-2.png" />
+    <Resource Include="Resources\Icons\envelope.png" />
+    <Resource Include="Resources\Icons\file-1.png" />
+    <Resource Include="Resources\Icons\file-10.png" />
+    <Resource Include="Resources\Icons\file-11.png" />
+    <Resource Include="Resources\Icons\file-12.png" />
+    <Resource Include="Resources\Icons\file-13.png" />
+    <Resource Include="Resources\Icons\file-14.png" />
+    <Resource Include="Resources\Icons\file-15.png" />
+    <Resource Include="Resources\Icons\file-16.png" />
+    <Resource Include="Resources\Icons\file-17.png" />
+    <Resource Include="Resources\Icons\file-18.png" />
+    <Resource Include="Resources\Icons\file-19.png" />
+    <Resource Include="Resources\Icons\file-2.png" />
+    <Resource Include="Resources\Icons\file-3.png" />
+    <Resource Include="Resources\Icons\file-4.png" />
+    <Resource Include="Resources\Icons\file-5.png" />
+    <Resource Include="Resources\Icons\file-6.png" />
+    <Resource Include="Resources\Icons\file-7.png" />
+    <Resource Include="Resources\Icons\file-8.png" />
+    <Resource Include="Resources\Icons\file-9.png" />
+    <Resource Include="Resources\Icons\file.png" />
+    <Resource Include="Resources\Icons\folder-1.png" />
+    <Resource Include="Resources\Icons\folder-10.png" />
+    <Resource Include="Resources\Icons\folder-11.png" />
+    <Resource Include="Resources\Icons\folder-12.png" />
+    <Resource Include="Resources\Icons\folder-13.png" />
+    <Resource Include="Resources\Icons\folder-14.png" />
+    <Resource Include="Resources\Icons\folder-15.png" />
+    <Resource Include="Resources\Icons\folder-16.png" />
+    <Resource Include="Resources\Icons\folder-17.png" />
+    <Resource Include="Resources\Icons\folder-18.png" />
+    <Resource Include="Resources\Icons\folder-19.png" />
+    <Resource Include="Resources\Icons\folder-2.png" />
+    <Resource Include="Resources\Icons\folder-3.png" />
+    <Resource Include="Resources\Icons\folder-4.png" />
+    <Resource Include="Resources\Icons\folder-5.png" />
+    <Resource Include="Resources\Icons\folder-6.png" />
+    <Resource Include="Resources\Icons\folder-7.png" />
+    <Resource Include="Resources\Icons\folder-8.png" />
+    <Resource Include="Resources\Icons\folder-9.png" />
+    <Resource Include="Resources\Icons\folder.png" />
+    <Resource Include="Resources\Icons\get-money.png" />
+    <Resource Include="Resources\Icons\graph-1.png" />
+    <Resource Include="Resources\Icons\graph-2.png" />
+    <Resource Include="Resources\Icons\graph-3.png" />
+    <Resource Include="Resources\Icons\graph-4.png" />
+    <Resource Include="Resources\Icons\graph-5.png" />
+    <Resource Include="Resources\Icons\graph-6.png" />
+    <Resource Include="Resources\Icons\graph-7.png" />
+    <Resource Include="Resources\Icons\graph-8.png" />
+    <Resource Include="Resources\Icons\graph.png" />
+    <Resource Include="Resources\Icons\grocery-1.png" />
+    <Resource Include="Resources\Icons\grocery.png" />
+    <Resource Include="Resources\Icons\image-1.png" />
+    <Resource Include="Resources\Icons\image-10.png" />
+    <Resource Include="Resources\Icons\image-11.png" />
+    <Resource Include="Resources\Icons\image-12.png" />
+    <Resource Include="Resources\Icons\image-13.png" />
+    <Resource Include="Resources\Icons\image-14.png" />
+    <Resource Include="Resources\Icons\image-15.png" />
+    <Resource Include="Resources\Icons\image-16.png" />
+    <Resource Include="Resources\Icons\image-17.png" />
+    <Resource Include="Resources\Icons\image-18.png" />
+    <Resource Include="Resources\Icons\image-19.png" />
+    <Resource Include="Resources\Icons\image-2.png" />
+    <Resource Include="Resources\Icons\image-3.png" />
+    <Resource Include="Resources\Icons\image-4.png" />
+    <Resource Include="Resources\Icons\image-5.png" />
+    <Resource Include="Resources\Icons\image-6.png" />
+    <Resource Include="Resources\Icons\image-7.png" />
+    <Resource Include="Resources\Icons\image-8.png" />
+    <Resource Include="Resources\Icons\image-9.png" />
+    <Resource Include="Resources\Icons\image.png" />
+    <Resource Include="Resources\Icons\insert-coin.png" />
+    <Resource Include="Resources\Icons\investment.png" />
+    <Resource Include="Resources\Icons\justice-scale.png" />
+    <Resource Include="Resources\Icons\justice.png" />
+    <Resource Include="Resources\Icons\list-1.png" />
+    <Resource Include="Resources\Icons\list-10.png" />
+    <Resource Include="Resources\Icons\list-11.png" />
+    <Resource Include="Resources\Icons\list-12.png" />
+    <Resource Include="Resources\Icons\list-13.png" />
+    <Resource Include="Resources\Icons\list-14.png" />
+    <Resource Include="Resources\Icons\list-15.png" />
+    <Resource Include="Resources\Icons\list-16.png" />
+    <Resource Include="Resources\Icons\list-17.png" />
+    <Resource Include="Resources\Icons\list-18.png" />
+    <Resource Include="Resources\Icons\list-19.png" />
+    <Resource Include="Resources\Icons\list-2.png" />
+    <Resource Include="Resources\Icons\list-3.png" />
+    <Resource Include="Resources\Icons\list-4.png" />
+    <Resource Include="Resources\Icons\list-5.png" />
+    <Resource Include="Resources\Icons\list-6.png" />
+    <Resource Include="Resources\Icons\list-7.png" />
+    <Resource Include="Resources\Icons\list-8.png" />
+    <Resource Include="Resources\Icons\list-9.png" />
+    <Resource Include="Resources\Icons\list.png" />
+    <Resource Include="Resources\Icons\mail-1.png" />
+    <Resource Include="Resources\Icons\mail-10.png" />
+    <Resource Include="Resources\Icons\mail-11.png" />
+    <Resource Include="Resources\Icons\mail-12.png" />
+    <Resource Include="Resources\Icons\mail-13.png" />
+    <Resource Include="Resources\Icons\mail-14.png" />
+    <Resource Include="Resources\Icons\mail-15.png" />
+    <Resource Include="Resources\Icons\mail-16.png" />
+    <Resource Include="Resources\Icons\mail-2.png" />
+    <Resource Include="Resources\Icons\mail-3.png" />
+    <Resource Include="Resources\Icons\mail-4.png" />
+    <Resource Include="Resources\Icons\mail-5.png" />
+    <Resource Include="Resources\Icons\mail-6.png" />
+    <Resource Include="Resources\Icons\mail-7.png" />
+    <Resource Include="Resources\Icons\mail-8.png" />
+    <Resource Include="Resources\Icons\mail-9.png" />
+    <Resource Include="Resources\Icons\mail.png" />
+    <Resource Include="Resources\Icons\map-1.png" />
+    <Resource Include="Resources\Icons\map-10.png" />
+    <Resource Include="Resources\Icons\map-11.png" />
+    <Resource Include="Resources\Icons\map-12.png" />
+    <Resource Include="Resources\Icons\map-13.png" />
+    <Resource Include="Resources\Icons\map-14.png" />
+    <Resource Include="Resources\Icons\map-15.png" />
+    <Resource Include="Resources\Icons\map-16.png" />
+    <Resource Include="Resources\Icons\map-17.png" />
+    <Resource Include="Resources\Icons\map-18.png" />
+    <Resource Include="Resources\Icons\map-19.png" />
+    <Resource Include="Resources\Icons\map-2.png" />
+    <Resource Include="Resources\Icons\map-3.png" />
+    <Resource Include="Resources\Icons\map-4.png" />
+    <Resource Include="Resources\Icons\map-5.png" />
+    <Resource Include="Resources\Icons\map-6.png" />
+    <Resource Include="Resources\Icons\map-7.png" />
+    <Resource Include="Resources\Icons\map-8.png" />
+    <Resource Include="Resources\Icons\map-9.png" />
+    <Resource Include="Resources\Icons\map.png" />
+    <Resource Include="Resources\Icons\megaphone.png" />
+    <Resource Include="Resources\Icons\money.png" />
+    <Resource Include="Resources\Icons\music-player-1.png" />
+    <Resource Include="Resources\Icons\music-player-10.png" />
+    <Resource Include="Resources\Icons\music-player-11.png" />
+    <Resource Include="Resources\Icons\music-player-12.png" />
+    <Resource Include="Resources\Icons\music-player-13.png" />
+    <Resource Include="Resources\Icons\music-player-14.png" />
+    <Resource Include="Resources\Icons\music-player-15.png" />
+    <Resource Include="Resources\Icons\music-player-16.png" />
+    <Resource Include="Resources\Icons\music-player-17.png" />
+    <Resource Include="Resources\Icons\music-player-18.png" />
+    <Resource Include="Resources\Icons\music-player-19.png" />
+    <Resource Include="Resources\Icons\music-player-2.png" />
+    <Resource Include="Resources\Icons\music-player-3.png" />
+    <Resource Include="Resources\Icons\music-player-4.png" />
+    <Resource Include="Resources\Icons\music-player-5.png" />
+    <Resource Include="Resources\Icons\music-player-6.png" />
+    <Resource Include="Resources\Icons\music-player-7.png" />
+    <Resource Include="Resources\Icons\music-player-8.png" />
+    <Resource Include="Resources\Icons\music-player-9.png" />
+    <Resource Include="Resources\Icons\music-player.png" />
+    <Resource Include="Resources\Icons\notebook-1.png" />
+    <Resource Include="Resources\Icons\notebook-10.png" />
+    <Resource Include="Resources\Icons\notebook-11.png" />
+    <Resource Include="Resources\Icons\notebook-12.png" />
+    <Resource Include="Resources\Icons\notebook-13.png" />
+    <Resource Include="Resources\Icons\notebook-14.png" />
+    <Resource Include="Resources\Icons\notebook-15.png" />
+    <Resource Include="Resources\Icons\notebook-16.png" />
+    <Resource Include="Resources\Icons\notebook-17.png" />
+    <Resource Include="Resources\Icons\notebook-18.png" />
+    <Resource Include="Resources\Icons\notebook-19.png" />
+    <Resource Include="Resources\Icons\notebook-2.png" />
+    <Resource Include="Resources\Icons\notebook-3.png" />
+    <Resource Include="Resources\Icons\notebook-4.png" />
+    <Resource Include="Resources\Icons\notebook-5.png" />
+    <Resource Include="Resources\Icons\notebook-6.png" />
+    <Resource Include="Resources\Icons\notebook-7.png" />
+    <Resource Include="Resources\Icons\notebook-8.png" />
+    <Resource Include="Resources\Icons\notebook-9.png" />
+    <Resource Include="Resources\Icons\notebook.png" />
+    <Resource Include="Resources\Icons\notepad-1.png" />
+    <Resource Include="Resources\Icons\notepad-10.png" />
+    <Resource Include="Resources\Icons\notepad-11.png" />
+    <Resource Include="Resources\Icons\notepad-12.png" />
+    <Resource Include="Resources\Icons\notepad-13.png" />
+    <Resource Include="Resources\Icons\notepad-14.png" />
+    <Resource Include="Resources\Icons\notepad-15.png" />
+    <Resource Include="Resources\Icons\notepad-16.png" />
+    <Resource Include="Resources\Icons\notepad-17.png" />
+    <Resource Include="Resources\Icons\notepad-18.png" />
+    <Resource Include="Resources\Icons\notepad-19.png" />
+    <Resource Include="Resources\Icons\notepad-2.png" />
+    <Resource Include="Resources\Icons\notepad-3.png" />
+    <Resource Include="Resources\Icons\notepad-4.png" />
+    <Resource Include="Resources\Icons\notepad-5.png" />
+    <Resource Include="Resources\Icons\notepad-6.png" />
+    <Resource Include="Resources\Icons\notepad-7.png" />
+    <Resource Include="Resources\Icons\notepad-8.png" />
+    <Resource Include="Resources\Icons\notepad-9.png" />
+    <Resource Include="Resources\Icons\notepad.png" />
+    <Resource Include="Resources\Icons\notes-1.png" />
+    <Resource Include="Resources\Icons\notes-2.png" />
+    <Resource Include="Resources\Icons\notes.png" />
+    <Resource Include="Resources\Icons\open.png" />
+    <Resource Include="Resources\Icons\pack.png" />
+    <Resource Include="Resources\Icons\phone-call-1.png" />
+    <Resource Include="Resources\Icons\phone-call-10.png" />
+    <Resource Include="Resources\Icons\phone-call-11.png" />
+    <Resource Include="Resources\Icons\phone-call-12.png" />
+    <Resource Include="Resources\Icons\phone-call-13.png" />
+    <Resource Include="Resources\Icons\phone-call-14.png" />
+    <Resource Include="Resources\Icons\phone-call-15.png" />
+    <Resource Include="Resources\Icons\phone-call-16.png" />
+    <Resource Include="Resources\Icons\phone-call-17.png" />
+    <Resource Include="Resources\Icons\phone-call-18.png" />
+    <Resource Include="Resources\Icons\phone-call-19.png" />
+    <Resource Include="Resources\Icons\phone-call-2.png" />
+    <Resource Include="Resources\Icons\phone-call-3.png" />
+    <Resource Include="Resources\Icons\phone-call-4.png" />
+    <Resource Include="Resources\Icons\phone-call-5.png" />
+    <Resource Include="Resources\Icons\phone-call-6.png" />
+    <Resource Include="Resources\Icons\phone-call-7.png" />
+    <Resource Include="Resources\Icons\phone-call-8.png" />
+    <Resource Include="Resources\Icons\phone-call-9.png" />
+    <Resource Include="Resources\Icons\phone-call.png" />
+    <Resource Include="Resources\Icons\pie-chart-1.png" />
+    <Resource Include="Resources\Icons\pie-chart-2.png" />
+    <Resource Include="Resources\Icons\pie-chart-3.png" />
+    <Resource Include="Resources\Icons\pie-chart-4.png" />
+    <Resource Include="Resources\Icons\pie-chart-5.png" />
+    <Resource Include="Resources\Icons\pie-chart-6.png" />
+    <Resource Include="Resources\Icons\pie-chart.png" />
+    <Resource Include="Resources\Icons\piggy-bank-1.png" />
+    <Resource Include="Resources\Icons\piggy-bank.png" />
+    <Resource Include="Resources\Icons\placeholder-1.png" />
+    <Resource Include="Resources\Icons\placeholder-10.png" />
+    <Resource Include="Resources\Icons\placeholder-11.png" />
+    <Resource Include="Resources\Icons\placeholder-12.png" />
+    <Resource Include="Resources\Icons\placeholder-13.png" />
+    <Resource Include="Resources\Icons\placeholder-14.png" />
+    <Resource Include="Resources\Icons\placeholder-15.png" />
+    <Resource Include="Resources\Icons\placeholder-16.png" />
+    <Resource Include="Resources\Icons\placeholder-17.png" />
+    <Resource Include="Resources\Icons\placeholder-18.png" />
+    <Resource Include="Resources\Icons\placeholder-19.png" />
+    <Resource Include="Resources\Icons\placeholder-2.png" />
+    <Resource Include="Resources\Icons\placeholder-3.png" />
+    <Resource Include="Resources\Icons\placeholder-4.png" />
+    <Resource Include="Resources\Icons\placeholder-5.png" />
+    <Resource Include="Resources\Icons\placeholder-6.png" />
+    <Resource Include="Resources\Icons\placeholder-7.png" />
+    <Resource Include="Resources\Icons\placeholder-8.png" />
+    <Resource Include="Resources\Icons\placeholder-9.png" />
+    <Resource Include="Resources\Icons\placeholder.png" />
+    <Resource Include="Resources\Icons\point-of-service.png" />
+    <Resource Include="Resources\Icons\poor.png" />
+    <Resource Include="Resources\Icons\presentation-1.png" />
+    <Resource Include="Resources\Icons\presentation-10.png" />
+    <Resource Include="Resources\Icons\presentation-11.png" />
+    <Resource Include="Resources\Icons\presentation-12.png" />
+    <Resource Include="Resources\Icons\presentation-13.png" />
+    <Resource Include="Resources\Icons\presentation-14.png" />
+    <Resource Include="Resources\Icons\presentation-15.png" />
+    <Resource Include="Resources\Icons\presentation-16.png" />
+    <Resource Include="Resources\Icons\presentation-17.png" />
+    <Resource Include="Resources\Icons\presentation-18.png" />
+    <Resource Include="Resources\Icons\presentation-19.png" />
+    <Resource Include="Resources\Icons\presentation-2.png" />
+    <Resource Include="Resources\Icons\presentation-3.png" />
+    <Resource Include="Resources\Icons\presentation-4.png" />
+    <Resource Include="Resources\Icons\presentation-5.png" />
+    <Resource Include="Resources\Icons\presentation-6.png" />
+    <Resource Include="Resources\Icons\presentation-7.png" />
+    <Resource Include="Resources\Icons\presentation-8.png" />
+    <Resource Include="Resources\Icons\presentation-9.png" />
+    <Resource Include="Resources\Icons\presentation.png" />
+    <Resource Include="Resources\Icons\price-tag-1.png" />
+    <Resource Include="Resources\Icons\price-tag-10.png" />
+    <Resource Include="Resources\Icons\price-tag-11.png" />
+    <Resource Include="Resources\Icons\price-tag-12.png" />
+    <Resource Include="Resources\Icons\price-tag-13.png" />
+    <Resource Include="Resources\Icons\price-tag-14.png" />
+    <Resource Include="Resources\Icons\price-tag-15.png" />
+    <Resource Include="Resources\Icons\price-tag-16.png" />
+    <Resource Include="Resources\Icons\price-tag-17.png" />
+    <Resource Include="Resources\Icons\price-tag-18.png" />
+    <Resource Include="Resources\Icons\price-tag-19.png" />
+    <Resource Include="Resources\Icons\price-tag-2.png" />
+    <Resource Include="Resources\Icons\price-tag-3.png" />
+    <Resource Include="Resources\Icons\price-tag-4.png" />
+    <Resource Include="Resources\Icons\price-tag-5.png" />
+    <Resource Include="Resources\Icons\price-tag-6.png" />
+    <Resource Include="Resources\Icons\price-tag-7.png" />
+    <Resource Include="Resources\Icons\price-tag-8.png" />
+    <Resource Include="Resources\Icons\price-tag-9.png" />
+    <Resource Include="Resources\Icons\price-tag.png" />
+    <Resource Include="Resources\Icons\receipt.png" />
+    <Resource Include="Resources\Icons\record.png" />
+    <Resource Include="Resources\Icons\rewind-time.png" />
+    <Resource Include="Resources\Icons\rich.png" />
+    <Resource Include="Resources\Icons\safebox-1.png" />
+    <Resource Include="Resources\Icons\safebox-2.png" />
+    <Resource Include="Resources\Icons\safebox-3.png" />
+    <Resource Include="Resources\Icons\safebox-4.png" />
+    <Resource Include="Resources\Icons\safebox.png" />
+    <Resource Include="Resources\Icons\server-1.png" />
+    <Resource Include="Resources\Icons\server-10.png" />
+    <Resource Include="Resources\Icons\server-11.png" />
+    <Resource Include="Resources\Icons\server-12.png" />
+    <Resource Include="Resources\Icons\server-13.png" />
+    <Resource Include="Resources\Icons\server-14.png" />
+    <Resource Include="Resources\Icons\server-15.png" />
+    <Resource Include="Resources\Icons\server-16.png" />
+    <Resource Include="Resources\Icons\server-17.png" />
+    <Resource Include="Resources\Icons\server-18.png" />
+    <Resource Include="Resources\Icons\server-19.png" />
+    <Resource Include="Resources\Icons\server-2.png" />
+    <Resource Include="Resources\Icons\server-3.png" />
+    <Resource Include="Resources\Icons\server-4.png" />
+    <Resource Include="Resources\Icons\server-5.png" />
+    <Resource Include="Resources\Icons\server-6.png" />
+    <Resource Include="Resources\Icons\server-7.png" />
+    <Resource Include="Resources\Icons\server-8.png" />
+    <Resource Include="Resources\Icons\server-9.png" />
+    <Resource Include="Resources\Icons\server.png" />
+    <Resource Include="Resources\Icons\signs-1.png" />
+    <Resource Include="Resources\Icons\signs-2.png" />
+    <Resource Include="Resources\Icons\signs-3.png" />
+    <Resource Include="Resources\Icons\signs-4.png" />
+    <Resource Include="Resources\Icons\signs-5.png" />
+    <Resource Include="Resources\Icons\signs-6.png" />
+    <Resource Include="Resources\Icons\signs-7.png" />
+    <Resource Include="Resources\Icons\signs-8.png" />
+    <Resource Include="Resources\Icons\signs-9.png" />
+    <Resource Include="Resources\Icons\signs.png" />
+    <Resource Include="Resources\Icons\smartphone-1.png" />
+    <Resource Include="Resources\Icons\smartphone-10.png" />
+    <Resource Include="Resources\Icons\smartphone-11.png" />
+    <Resource Include="Resources\Icons\smartphone-12.png" />
+    <Resource Include="Resources\Icons\smartphone-13.png" />
+    <Resource Include="Resources\Icons\smartphone-14.png" />
+    <Resource Include="Resources\Icons\smartphone-15.png" />
+    <Resource Include="Resources\Icons\smartphone-16.png" />
+    <Resource Include="Resources\Icons\smartphone-17.png" />
+    <Resource Include="Resources\Icons\smartphone-18.png" />
+    <Resource Include="Resources\Icons\smartphone-19.png" />
+    <Resource Include="Resources\Icons\smartphone-2.png" />
+    <Resource Include="Resources\Icons\smartphone-3.png" />
+    <Resource Include="Resources\Icons\smartphone-4.png" />
+    <Resource Include="Resources\Icons\smartphone-5.png" />
+    <Resource Include="Resources\Icons\smartphone-6.png" />
+    <Resource Include="Resources\Icons\smartphone-7.png" />
+    <Resource Include="Resources\Icons\smartphone-8.png" />
+    <Resource Include="Resources\Icons\smartphone-9.png" />
+    <Resource Include="Resources\Icons\smartphone.png" />
+    <Resource Include="Resources\Icons\speech-bubble-1.png" />
+    <Resource Include="Resources\Icons\speech-bubble-10.png" />
+    <Resource Include="Resources\Icons\speech-bubble-11.png" />
+    <Resource Include="Resources\Icons\speech-bubble-12.png" />
+    <Resource Include="Resources\Icons\speech-bubble-13.png" />
+    <Resource Include="Resources\Icons\speech-bubble-14.png" />
+    <Resource Include="Resources\Icons\speech-bubble-15.png" />
+    <Resource Include="Resources\Icons\speech-bubble-16.png" />
+    <Resource Include="Resources\Icons\speech-bubble-17.png" />
+    <Resource Include="Resources\Icons\speech-bubble-18.png" />
+    <Resource Include="Resources\Icons\speech-bubble-19.png" />
+    <Resource Include="Resources\Icons\speech-bubble-2.png" />
+    <Resource Include="Resources\Icons\speech-bubble-3.png" />
+    <Resource Include="Resources\Icons\speech-bubble-4.png" />
+    <Resource Include="Resources\Icons\speech-bubble-5.png" />
+    <Resource Include="Resources\Icons\speech-bubble-6.png" />
+    <Resource Include="Resources\Icons\speech-bubble-7.png" />
+    <Resource Include="Resources\Icons\speech-bubble-8.png" />
+    <Resource Include="Resources\Icons\speech-bubble-9.png" />
+    <Resource Include="Resources\Icons\speech-bubble.png" />
+    <Resource Include="Resources\Icons\stamp-1.png" />
+    <Resource Include="Resources\Icons\stamp.png" />
+    <Resource Include="Resources\Icons\stand.png" />
+    <Resource Include="Resources\Icons\stopwatch-1.png" />
+    <Resource Include="Resources\Icons\stopwatch-10.png" />
+    <Resource Include="Resources\Icons\stopwatch-11.png" />
+    <Resource Include="Resources\Icons\stopwatch-12.png" />
+    <Resource Include="Resources\Icons\stopwatch-13.png" />
+    <Resource Include="Resources\Icons\stopwatch-14.png" />
+    <Resource Include="Resources\Icons\stopwatch-15.png" />
+    <Resource Include="Resources\Icons\stopwatch-16.png" />
+    <Resource Include="Resources\Icons\stopwatch-17.png" />
+    <Resource Include="Resources\Icons\stopwatch-18.png" />
+    <Resource Include="Resources\Icons\stopwatch-19.png" />
+    <Resource Include="Resources\Icons\stopwatch-2.png" />
+    <Resource Include="Resources\Icons\stopwatch-20.png" />
+    <Resource Include="Resources\Icons\stopwatch-21.png" />
+    <Resource Include="Resources\Icons\stopwatch-22.png" />
+    <Resource Include="Resources\Icons\stopwatch-23.png" />
+    <Resource Include="Resources\Icons\stopwatch-24.png" />
+    <Resource Include="Resources\Icons\stopwatch-25.png" />
+    <Resource Include="Resources\Icons\stopwatch-26.png" />
+    <Resource Include="Resources\Icons\stopwatch-27.png" />
+    <Resource Include="Resources\Icons\stopwatch-28.png" />
+    <Resource Include="Resources\Icons\stopwatch-29.png" />
+    <Resource Include="Resources\Icons\stopwatch-3.png" />
+    <Resource Include="Resources\Icons\stopwatch-4.png" />
+    <Resource Include="Resources\Icons\stopwatch-5.png" />
+    <Resource Include="Resources\Icons\stopwatch-6.png" />
+    <Resource Include="Resources\Icons\stopwatch-7.png" />
+    <Resource Include="Resources\Icons\stopwatch-8.png" />
+    <Resource Include="Resources\Icons\stopwatch-9.png" />
+    <Resource Include="Resources\Icons\stopwatch.png" />
+    <Resource Include="Resources\Icons\store-1.png" />
+    <Resource Include="Resources\Icons\store-2.png" />
+    <Resource Include="Resources\Icons\store-3.png" />
+    <Resource Include="Resources\Icons\store.png" />
+    <Resource Include="Resources\Icons\strongbox.png" />
+    <Resource Include="Resources\Icons\suitcase-1.png" />
+    <Resource Include="Resources\Icons\suitcase-2.png" />
+    <Resource Include="Resources\Icons\suitcase.png" />
+    <Resource Include="Resources\Icons\time-is-money.png" />
+    <Resource Include="Resources\Icons\time-passing.png" />
+    <Resource Include="Resources\Icons\user-1.png" />
+    <Resource Include="Resources\Icons\user-10.png" />
+    <Resource Include="Resources\Icons\user-11.png" />
+    <Resource Include="Resources\Icons\user-12.png" />
+    <Resource Include="Resources\Icons\user-13.png" />
+    <Resource Include="Resources\Icons\user-14.png" />
+    <Resource Include="Resources\Icons\user-15.png" />
+    <Resource Include="Resources\Icons\user-16.png" />
+    <Resource Include="Resources\Icons\user-17.png" />
+    <Resource Include="Resources\Icons\user-18.png" />
+    <Resource Include="Resources\Icons\user-19.png" />
+    <Resource Include="Resources\Icons\user-2.png" />
+    <Resource Include="Resources\Icons\user-20.png" />
+    <Resource Include="Resources\Icons\user-21.png" />
+    <Resource Include="Resources\Icons\user-22.png" />
+    <Resource Include="Resources\Icons\user-23.png" />
+    <Resource Include="Resources\Icons\user-24.png" />
+    <Resource Include="Resources\Icons\user-25.png" />
+    <Resource Include="Resources\Icons\user-26.png" />
+    <Resource Include="Resources\Icons\user-27.png" />
+    <Resource Include="Resources\Icons\user-28.png" />
+    <Resource Include="Resources\Icons\user-29.png" />
+    <Resource Include="Resources\Icons\user-3.png" />
+    <Resource Include="Resources\Icons\user-30.png" />
+    <Resource Include="Resources\Icons\user-31.png" />
+    <Resource Include="Resources\Icons\user-32.png" />
+    <Resource Include="Resources\Icons\user-33.png" />
+    <Resource Include="Resources\Icons\user-34.png" />
+    <Resource Include="Resources\Icons\user-35.png" />
+    <Resource Include="Resources\Icons\user-36.png" />
+    <Resource Include="Resources\Icons\user-37.png" />
+    <Resource Include="Resources\Icons\user-38.png" />
+    <Resource Include="Resources\Icons\user-39.png" />
+    <Resource Include="Resources\Icons\user-4.png" />
+    <Resource Include="Resources\Icons\user-40.png" />
+    <Resource Include="Resources\Icons\user-41.png" />
+    <Resource Include="Resources\Icons\user-42.png" />
+    <Resource Include="Resources\Icons\user-43.png" />
+    <Resource Include="Resources\Icons\user-44.png" />
+    <Resource Include="Resources\Icons\user-45.png" />
+    <Resource Include="Resources\Icons\user-46.png" />
+    <Resource Include="Resources\Icons\user-47.png" />
+    <Resource Include="Resources\Icons\user-48.png" />
+    <Resource Include="Resources\Icons\user-49.png" />
+    <Resource Include="Resources\Icons\user-5.png" />
+    <Resource Include="Resources\Icons\user-50.png" />
+    <Resource Include="Resources\Icons\user-51.png" />
+    <Resource Include="Resources\Icons\user-52.png" />
+    <Resource Include="Resources\Icons\user-53.png" />
+    <Resource Include="Resources\Icons\user-54.png" />
+    <Resource Include="Resources\Icons\user-55.png" />
+    <Resource Include="Resources\Icons\user-56.png" />
+    <Resource Include="Resources\Icons\user-57.png" />
+    <Resource Include="Resources\Icons\user-58.png" />
+    <Resource Include="Resources\Icons\user-59.png" />
+    <Resource Include="Resources\Icons\user-6.png" />
+    <Resource Include="Resources\Icons\user-7.png" />
+    <Resource Include="Resources\Icons\user-8.png" />
+    <Resource Include="Resources\Icons\user-9.png" />
+    <Resource Include="Resources\Icons\user.png" />
+    <Resource Include="Resources\Icons\video-player-1.png" />
+    <Resource Include="Resources\Icons\video-player-10.png" />
+    <Resource Include="Resources\Icons\video-player-11.png" />
+    <Resource Include="Resources\Icons\video-player-12.png" />
+    <Resource Include="Resources\Icons\video-player-13.png" />
+    <Resource Include="Resources\Icons\video-player-14.png" />
+    <Resource Include="Resources\Icons\video-player-15.png" />
+    <Resource Include="Resources\Icons\video-player-16.png" />
+    <Resource Include="Resources\Icons\video-player-17.png" />
+    <Resource Include="Resources\Icons\video-player-18.png" />
+    <Resource Include="Resources\Icons\video-player-19.png" />
+    <Resource Include="Resources\Icons\video-player-2.png" />
+    <Resource Include="Resources\Icons\video-player-3.png" />
+    <Resource Include="Resources\Icons\video-player-4.png" />
+    <Resource Include="Resources\Icons\video-player-5.png" />
+    <Resource Include="Resources\Icons\video-player-6.png" />
+    <Resource Include="Resources\Icons\video-player-7.png" />
+    <Resource Include="Resources\Icons\video-player-8.png" />
+    <Resource Include="Resources\Icons\video-player-9.png" />
+    <Resource Include="Resources\Icons\video-player.png" />
+    <Resource Include="Resources\Icons\wallet-1.png" />
+    <Resource Include="Resources\Icons\wallet-2.png" />
+    <Resource Include="Resources\Icons\wallet.png" />
+    <Resource Include="Resources\Icons\yen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\warning.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" E:\Projekte\Ctrl\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

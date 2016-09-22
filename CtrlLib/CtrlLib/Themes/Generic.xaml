@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlButton.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlTextBox.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlMaskedTextBox.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlListMenu.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlWindow.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlStackedTabControl.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlTabControl.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlLoadingIndicator.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlRibbonItem.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlGroupBox.xaml"/>
+        <ResourceDictionary Source="/CtrlLib;component/Themes/CtrlGridView.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

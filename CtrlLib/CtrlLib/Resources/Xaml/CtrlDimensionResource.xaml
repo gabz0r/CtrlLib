@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:Double x:Key="CtrlShort">300</system:Double>
+    <system:Double x:Key="CtrlMedium">400</system:Double>
+    <system:Double x:Key="CtrlLong">500</system:Double>
+    
+</ResourceDictionary>

@@ -1,0 +1,49 @@
+﻿<mvvm:CtrlBaseUserControl x:Class="CtrlApplication.Modules.Article.ArticleUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mvvm="clr-namespace:CtrlLib.UserInterface.Mvvm;assembly=CtrlLib"
+             xmlns:commands="clr-namespace:CtrlLib.Commands;assembly=CtrlLib"
+             xmlns:ribbon="clr-namespace:CtrlLib.UserInterface.Controls.Ribbon;assembly=CtrlLib"
+             xmlns:layout="clr-namespace:CtrlLib.UserInterface.Layout;assembly=CtrlLib"
+             xmlns:host="clr-namespace:CtrlLib.UserInterface.Controls.Host;assembly=CtrlLib"
+             xmlns:editors="clr-namespace:CtrlLib.UserInterface.Controls.Editors;assembly=CtrlLib"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="ArticleUserControl_OnLoaded">
+    <mvvm:CtrlBaseUserControl.CommandBindings>
+        <CommandBinding x:Name="CtrlNewCommandBinding"
+                        Command="commands:CtrlCommands.CtrlNew"
+                        CanExecute="CtrlNewCommandBinding_OnCanExecute"
+                        Executed="CtrlNewCommandBinding_OnExecuted"/>
+        <CommandBinding x:Name="CtrlSaveCommandBinding"
+                        Command="commands:CtrlCommands.CtrlSave"
+                        CanExecute="CtrlSaveCommandBinding_OnCanExecute"
+                        Executed="CtrlSaveCommandBinding_OnExecuted" />
+        <CommandBinding x:Name="CtrlSearchCommandBinding"
+                        Command="commands:CtrlCommands.CtrlSearch"
+                        CanExecute="CtrlSearchCommandBinding_OnCanExecute"
+                        Executed="CtrlSearchCommandBinding_OnExecuted" />
+    </mvvm:CtrlBaseUserControl.CommandBindings>
+    
+    <Grid>
+        <layout:CtrlLayoutGroup x:Name="BaseLayoutGroup" Orientation="Vertical">
+            <host:CtrlGroupBox x:Name="HeaderGroupBox" Header="Artikelkopf">
+                <layout:CtrlLayoutGroup x:Name="HeaderLayoutGroup" Orientation="Vertical">
+                    <editors:CtrlTextBox x:Name="ArticleIdTextBox" CtrlLabel="Artikelnummer" Width="{StaticResource CtrlShort}" Text="{Binding Article.ArticleId}" />
+                    <editors:CtrlTextBox CtrlLabel="Bezeichnung 1" Width="{StaticResource CtrlLong}" Text="{Binding Article.Description1}" />
+                    <editors:CtrlTextBox CtrlLabel="Bezeichnung 2" Width="{StaticResource CtrlLong}" Text="{Binding Article.Description2}" />
+                    <editors:CtrlTextBox CtrlLabel="Bezeichnung 3" Width="{StaticResource CtrlLong}" Text="{Binding Article.Description3}" />
+                    <editors:CtrlTextBox CtrlLabel="Bezeichnung 4" Width="{StaticResource CtrlLong}" Text="{Binding Article.Description4}" />
+                </layout:CtrlLayoutGroup>
+            </host:CtrlGroupBox>
+
+            <host:CtrlGroupBox x:Name="PurchasingGroupBox" Header="Einkauf">
+                <layout:CtrlLayoutGroup x:Name="PurchasingLayoutGroup">
+                    <editors:CtrlTextBox CtrlLabel="Letzter Einkaufspreis" Text="{Binding Article.LastPurchasePrice}" Width="{StaticResource CtrlLong}" IsReadOnly="True"/>
+                    <editors:CtrlTextBox CtrlLabel="Bei Lieferant" Text="{Binding Article.CheapestSupplier.Name1}" Width="{StaticResource CtrlLong}"/>
+                </layout:CtrlLayoutGroup>
+            </host:CtrlGroupBox>
+        </layout:CtrlLayoutGroup>
+    </Grid>
+</mvvm:CtrlBaseUserControl>

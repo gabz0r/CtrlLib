@@ -1,0 +1,44 @@
+﻿<mvvm:CtrlBaseWindow x:Class="CtrlLib.App.Exception.CtrlUnhandledExceptionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mvvm="clr-namespace:CtrlLib.UserInterface.Mvvm"
+        mc:Ignorable="d"
+        Title="Fehler" Height="400" Width="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Entschulding. Das hätte nicht passieren dürfen. " FontWeight="Bold" FontSize="16"/>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Sollte Sie der Fehler im laufenden Betrieb stören, so wenden Sie sich bitte an den Softwareentwickler." Margin="0 0 0 5" FontSize="16"/>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Hier sind weitere Informationen, die uns bei der Fehlersuche helfen könnten:" FontSize="14"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Exception" Margin="0 10 0 10"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CtrlName}" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Margin="0 10 0 10"/>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="StackTrace" Margin="0 10 0 10"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CtrlStackTrace}" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Margin="0 10 0 10"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="InnerException" Margin="0 10 0 10"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding CtrlInnerException}" IsReadOnly="True" MouseDoubleClick="InnerException_OnMouseDoubleClick" VerticalScrollBarVisibility="Auto" Margin="0 10 0 10"/>
+
+        <Label Grid.Row="6" Grid.Column="0" Content="Message" Margin="0 10 0 10"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding CtrlMessage}" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Margin="0 10 0 10"/>
+
+    </Grid>
+    </ScrollViewer>
+</mvvm:CtrlBaseWindow>

@@ -1,0 +1,11 @@
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\obj\Debug\CtrlValidationLib.csprojResolveAssemblyReference.cache
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\bin\Debug\CtrlValidationLib.dll
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\bin\Debug\CtrlValidationLib.pdb
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\bin\Debug\CloudApiLib.dll
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\bin\Debug\CtrlBusinessLibSdk.dll
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\bin\Debug\MongoDB.Bson.dll
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\bin\Debug\MongoDB.Driver.Core.dll
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\bin\Debug\MongoDB.Driver.dll
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\bin\Debug\CloudApiLib.pdb
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\obj\Debug\CtrlValidationLib.dll
+E:\Visual Studio 2015\Projects\CtrlBusinessLib\CtrlValidationLib\obj\Debug\CtrlValidationLib.pdb

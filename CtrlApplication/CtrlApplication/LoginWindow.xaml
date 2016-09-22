@@ -1,0 +1,32 @@
+﻿<Window x:Class="CtrlApplication.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:layout="clr-namespace:CtrlLib.UserInterface.Layout;assembly=CtrlLib"
+        xmlns:actions="clr-namespace:CtrlLib.UserInterface.Controls.Actions;assembly=CtrlLib"
+        xmlns:editors="clr-namespace:CtrlLib.UserInterface.Controls.Editors;assembly=CtrlLib"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="445" Width="780" AllowsTransparency="True" WindowStyle="None">
+
+    <Window.Background>
+        <ImageBrush ImageSource="login_ctrl.png"></ImageBrush>
+    </Window.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <layout:CtrlLayoutGroup Orientation="Vertical" Grid.Row="1" Grid.Column="1" Width="{StaticResource CtrlShort}" HorizontalAlignment="Left">
+            <editors:CtrlTextBox x:Name="UsernameTextItem" CtrlLabel="Benutzername"  Width="{StaticResource CtrlShort}" Text="{Binding MyUsername}" />
+            <editors:CtrlMaskedTextBox x:Name="PasswordMaskedTextItem" Width="{StaticResource CtrlShort}" CtrlLabel="Passwort" KeyDown="MyPassword_OnKeyDown" CtrlMaskedText="{Binding MyPassword, Mode=OneWayToSource}"/>
+            <actions:CtrlButton x:Name="LoginButton" Content="Anmelden" Click="LoginButton_OnClick" />
+        </layout:CtrlLayoutGroup>
+    </Grid>
+</Window>

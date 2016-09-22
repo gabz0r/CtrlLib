@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:commands="clr-namespace:CtrlLib.Commands">
+    
+    <ContextMenu x:Key="CtrlFavouritesContextMenu">
+        <MenuItem Header="Favorit setzen"
+	        Command="{x:Static commands:CtrlCommands.CtrlAddToFavourites}"
+	        CommandParameter="{Binding Path=PlacementTarget.SelectedItem, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}}" />
+        <MenuItem Header="Favorit entfernen"
+	        Command="{x:Static commands:CtrlCommands.CtrlRemoveFromFavourites}"
+	        CommandParameter="{Binding Path=PlacementTarget.SelectedItem, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}}" />
+    </ContextMenu>
+    
+</ResourceDictionary>

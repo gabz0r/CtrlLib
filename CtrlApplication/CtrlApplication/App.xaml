@@ -1,0 +1,19 @@
+﻿<app:CtrlApplication x:Class="CtrlApplication.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:app="clr-namespace:CtrlLib.App;assembly=CtrlLib"
+             StartupUri="LoginWindow.xaml">
+    <app:CtrlApplication.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="pack://application:,,,/CtrlLib;component/Resources/Xaml/CtrlContextMenuResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/CtrlLib;component/Resources/Xaml/CtrlColorResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/CtrlLib;component/Resources/Xaml/CtrlDimensionResource.xaml" />
+
+                <ResourceDictionary Source="pack://application:,,,/CtrlLib;component/Themes/Generic.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </app:CtrlApplication.Resources>
+</app:CtrlApplication>

@@ -1,0 +1,29 @@
+﻿<mvvm:CtrlBaseUserControl x:Class="CtrlLib.UserInterface.Search.CtrlSearchUserControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CtrlLib.UserInterface.Search"
+        xmlns:layout="clr-namespace:CtrlLib.UserInterface.Layout"
+        xmlns:host="clr-namespace:CtrlLib.UserInterface.Controls.Host"
+        xmlns:editors="clr-namespace:CtrlLib.UserInterface.Controls.Editors"
+        xmlns:ctrlDataGrid="clr-namespace:CtrlLib.UserInterface.Controls.Data.CtrlGridView"
+        xmlns:mvvm="clr-namespace:CtrlLib.UserInterface.Mvvm"
+        mc:Ignorable="d" Height="800" Width="1100" >
+    
+    <DockPanel>
+        
+        <host:CtrlGroupBox Header="Feldsuche" DockPanel.Dock="Top">
+            <layout:CtrlLayoutGroup x:Name="FieldSearchLayoutGroup" Orientation="Horizontal" />
+        </host:CtrlGroupBox>
+        <host:CtrlGroupBox Header="Volltextsuche" DockPanel.Dock="Top">
+            <layout:CtrlLayoutGroup x:Name="FulltextSearchLayoutGroup" Orientation="Horizontal" >
+                <editors:CtrlTextBox x:Name ="FtsTextBox" CtrlLabel="Suchbegriff" Width="950" KeyDown="FtsTextBox_OnKeyDown" />
+            </layout:CtrlLayoutGroup>
+        </host:CtrlGroupBox>
+
+        <ctrlDataGrid:CtrlGridView x:Name="ResultsGridControl" CtrlRowDoubleClick="ResultsGridControl_OnCtrlRowDoubleClick" DockPanel.Dock="Top"/>
+        
+    </DockPanel> 
+    
+</mvvm:CtrlBaseUserControl>

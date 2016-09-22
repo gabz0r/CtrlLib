@@ -1,0 +1,63 @@
+﻿<mvvm:CtrlBaseUserControl x:Class="CtrlApplication.Modules.MainMenu.MainMenuUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mainMenu="clr-namespace:CtrlApplication.Modules.MainMenu"
+             xmlns:mvvm="clr-namespace:CtrlLib.UserInterface.Mvvm;assembly=CtrlLib"
+             xmlns:menu="clr-namespace:CtrlLib.UserInterface.Controls.Data.Menu;assembly=CtrlLib"
+             xmlns:host="clr-namespace:CtrlLib.UserInterface.Controls.Host;assembly=CtrlLib"
+             xmlns:actions="clr-namespace:CtrlLib.UserInterface.Controls.Actions;assembly=CtrlLib"
+             xmlns:indicators="clr-namespace:CtrlLib.UserInterface.Controls.Indicators;assembly=CtrlLib"
+             xmlns:commands="clr-namespace:CtrlLib.Commands;assembly=CtrlLib"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.CommandBindings>
+        <CommandBinding x:Name="AddToFavouritesCommandBinding"
+                        Command="commands:CtrlCommands.CtrlAddToFavourites"
+                        CanExecute="AddToFavourites_OnCanExecute"
+                        Executed="AddToFavourites_OnExecuted"/>
+        <CommandBinding x:Name="RemoveFromFavouritesCommandBinding"
+                        Command="commands:CtrlCommands.CtrlRemoveFromFavourites"
+                        CanExecute="RemoveFromFavourites_OnCanExecute"
+                        Executed="RemoveFromFavourites_OnExecuted"/>
+    </UserControl.CommandBindings>
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*" x:Name="ListMenuColumn"/>
+            <ColumnDefinition Width="*" Name="DashboardColumn"/>
+        </Grid.ColumnDefinitions>
+
+        <host:CtrlStackedTabControl Grid.RowSpan="2" Grid.Column="0">
+            <TabControl.Items>
+                <TabItem Header="Favoriten">
+                    <menu:CtrlListMenu x:Name="FavouritesListView" 
+                  CtrlMenuItems="{Binding FavouriteItems, UpdateSourceTrigger=PropertyChanged}" ContextMenu="{StaticResource CtrlFavouritesContextMenu}" MouseDoubleClick="AllMenus_OnMouseDoubleClick"/>
+                </TabItem>
+                
+                <TabItem Header="Menü">
+                    <menu:CtrlListMenu x:Name="MenuItemsListView" 
+                                       CtrlMenuItems="{Binding MenuItems}" ContextMenu="{StaticResource CtrlFavouritesContextMenu}" MouseDoubleClick="AllMenus_OnMouseDoubleClick"/>
+                </TabItem>
+            </TabControl.Items>
+        </host:CtrlStackedTabControl>
+
+        <host:CtrlTabControl x:Name="ModulesTabControl" Grid.RowSpan="2" Grid.Column="1" Margin="5 0 0 0">
+            <host:CtrlTabControl.Items>
+                <TabItem Header="Dashboard">
+                    <TabItem.Content>
+                        <TextBlock>Test</TextBlock>
+                    </TabItem.Content>
+                </TabItem>
+            </host:CtrlTabControl.Items>
+        </host:CtrlTabControl>
+        
+    </Grid>
+</mvvm:CtrlBaseUserControl>
